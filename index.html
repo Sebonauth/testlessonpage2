@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient Descent in Practice</title>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+    <style>
+        /* Basic styling for a clean layout */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #333;
+            font-size: 150%; /* Increased font size to 150% */
+            margin: 0;
+            padding: 20px;
+        }
+        .lesson-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        .image-placeholder {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 18px;
+            padding: 50px 0;
+        }
+        .continue-button {
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            color: #fff;
+            background-color: #000;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            display: inline-block;
+        }
+        .hidden-section {
+            display: none;
+            margin-top: 30px; /* Adds space between sections */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="lesson-container">
+        <section>
+            <p>To minimize a function, we do the opposite—we move in the direction of the steepest descent.</p>
+            <p>The basic update rule in gradient descent is:</p>
+            <p>
+                \[
+                x_{\text{new}} = x_{\text{old}} - \alpha \nabla f(x_{\text{old}})
+                \]
+            </p>
+            <p>Where:</p>
+            <ul>
+                <li>\(x_{\text{old}}\): Current position.</li>
+                <li>\(\alpha\): Learning rate, a small positive number controlling the step size.</li>
+                <li>\(\nabla f(x_{\text{old}})\): Gradient at the current position.</li>
+            </ul>
+            <div class="continue-button" onclick="showNextSection('example-section')">Continue</div>
+        </section>
+
+        <section id="example-section" class="hidden-section">
+            <p>Let's put this into practice!</p>
+            <p>Suppose we have the function \(f(x) = x^2\). Starting from \(x_0 = 4\) and using a learning rate \(\alpha = 0.1\).</p>
+            <div class="image-placeholder">Placeholder Visual Aid</div>
+            <div class="continue-button" onclick="showNextSection('iteration1-section')">Continue</div>
+        </section>
+
+        <section id="iteration1-section" class="hidden-section">
+            <p>Let's perform one iteration of gradient descent.</p>
+            <p>Calculate the gradient at \(x_0\):</p>
+            <p>
+                \[
+                f'(x) = 2x
+                \]
+                \[
+                f'(4) = 2 \times 4 = 8
+                \]
+            </p>
+            <p>Update \(x\):</p>
+            <p>
+                \[
+                x_1 = x_0 - \alpha f'(x_0) = 4 - 0.1 \times 8 = 4 - 0.8 = 3.2
+                \]
+            </p>
+            <p>Answer: After one iteration, \(x = 3.2\).</p>
+            <p>Notice how \(x\) decreased from 4 to 3.2, moving closer to the minimum.</p>
+            <div class="image-placeholder">Placeholder Visual Aid</div>
+            <div class="continue-button" onclick="showNextSection('iteration2-section')">Continue</div>
+        </section>
+
+        <section id="iteration2-section" class="hidden-section">
+            <p>Let's go one more step.</p>
+            <p>Using the new value \(x_1 = 3.2\), let's perform another iteration of gradient descent.</p>
+            <p>Calculate the gradient at \(x_1\):</p>
+            <p>
+                \[
+                f'(3.2) = 2 \times 3.2 = 6.4
+                \]
+            </p>
+            <p>Update \(x\):</p>
+            <p>
+                \[
+                x_2 = x_1 - \alpha f'(x_1) = 3.2 - 0.1 \times 6.4 = 3.2 - 0.64 = 2.56
+                \]
+            </p>
+            <p>Answer: After the second iteration, \(x = 2.56\).</p>
+            <div class="image-placeholder">Placeholder Visual Aid</div>
+            <div class="continue-button" onclick="showNextSection('conclusion-section')">Continue</div>
+        </section>
+
+        <section id="conclusion-section" class="hidden-section">
+            <p>Awesome! Each step brings us closer to the minimum.</p>
+        </section>
+    </div>
+
+    <script>
+        function showNextSection(sectionId) {
+            // Hide the clicked button
+            event.target.style.display = 'none';
+            
+            // Show the next section
+            const nextSection = document.getElementById(sectionId);
+            if (nextSection) {
+                nextSection.style.display = 'block';
+                // Smooth scroll to the revealed section
+                nextSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+
+</body>
+</html>
