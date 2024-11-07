@@ -57,7 +57,11 @@
 
     <div class="lesson-container">
         <section>
-            <p>To minimize a function, we do the opposite—we move in the direction of the steepest descent.</p>
+            <p>To minimize a function, we do the opposite, we move in the direction of the steepest descent.</p>
+            <div class="continue-button" onclick="showNextSection('example-section')">Continue</div>
+        </section>
+
+        <section id="update-rule-section" class="hidden-section">            
             <p>The basic update rule in gradient descent is:</p>
             <p>
                 \[
@@ -72,7 +76,7 @@
             </ul>
             <div class="continue-button" onclick="showNextSection('example-section')">Continue</div>
         </section>
-
+        
         <section id="example-section" class="hidden-section">
             <p>Let's put this into practice!</p>
             <p>Suppose we have the function \(f(x) = x^2\). Starting from \(x_0 = 4\) and using a learning rate \(\alpha = 0.1\).</p>
